@@ -102,6 +102,12 @@ h1 {
   overflow: hidden;
 }
 
+.deck.dragging {
+  outline: 2px dashed rgba(216, 106, 58, 0.6);
+  outline-offset: -10px;
+  background: #fff2e2;
+}
+
 .deck:fullscreen {
   width: 100vw;
   height: 100vh;

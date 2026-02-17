@@ -3,6 +3,7 @@ const slideEl = document.getElementById("slide");
 const slideIndexEl = document.getElementById("slide-index");
 const slideTitleEl = document.getElementById("slide-title");
 const deckEl = document.querySelector(".deck");
+let dragDepth = 0;
 
 const demoMarkdown = `# Welcome to Markdown Slides
 
@@ -144,9 +145,50 @@ function syncPresentationMode() {
   document.body.classList.toggle("presenting", Boolean(document.fullscreenElement));
 }
 
+function hasFiles(event) {
+  return event.dataTransfer && Array.from(event.dataTransfer.types || []).includes("Files");
+}
+
+function handleDragEnter(event) {
+  if (!hasFiles(event)) return;
+  event.preventDefault();
+  dragDepth += 1;
+  deckEl.classList.add("dragging");
+}
+
+function handleDragLeave(event) {
+  if (!hasFiles(event)) return;
+  event.preventDefault();
+  dragDepth = Math.max(0, dragDepth - 1);
+  if (dragDepth === 0) {
+    deckEl.classList.remove("dragging");
+  }
+}
+
+function handleDragOver(event) {
+  if (!hasFiles(event)) return;
+  event.preventDefault();
+}
+
+function handleDrop(event) {
+  if (!hasFiles(event)) return;
+  event.preventDefault();
+  dragDepth = 0;
+  deckEl.classList.remove("dragging");
+  if (event.dataTransfer && event.dataTransfer.files.length > 0) {
+    loadMarkdownFiles(event.dataTransfer.files);
+  }
+}
+
 fileInput.addEventListener("change", handleFile);
 document.addEventListener("keydown", handleKey);
 deckEl.addEventListener("click", toggleFullscreen);
 document.addEventListener("fullscreenchange", syncPresentationMode);
+deckEl.addEventListener("dragenter", handleDragEnter);
+deckEl.addEventListener("dragleave", handleDragLeave);
+deckEl.addEventListener("dragover", handleDragOver);
+deckEl.addEventListener("drop", handleDrop);
+document.addEventListener("dragover", handleDragOver);
+document.addEventListener("drop", handleDrop);
 
 loadMarkdown(demoMarkdown);
