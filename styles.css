@@ -67,6 +67,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  align-items: center;
 }
 
 .upload {
@@ -87,6 +88,12 @@ h1 {
 .upload:hover {
   transform: translateY(-1px);
   box-shadow: 0 20px 40px rgba(216, 106, 58, 0.25);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 
