@@ -15,6 +15,3 @@ A simple static app that renders Markdown files as slide decks.
 - If you select multiple files, each file (and any `---` separators inside it) becomes a slide.
 - Any Markdown content is supported (headings, lists, code blocks, images).
 
-## Local demo
-
-If you want a quick sample, click "Load demo".

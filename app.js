@@ -1,5 +1,4 @@
 const fileInput = document.getElementById("file-input");
-const openDemo = document.getElementById("open-demo");
 const slideEl = document.getElementById("slide");
 const slideIndexEl = document.getElementById("slide-index");
 const slideTitleEl = document.getElementById("slide-title");
@@ -29,7 +28,7 @@ console.log(deck);
 
 ## Images and links
 
-![Warm gradient](https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80&auto=format&fit=crop)
+![Warm landscape](https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&h=900&q=80&auto=format&fit=crop)
 
 [Learn more about Markdown](https://www.markdownguide.org/basic-syntax/)
 
@@ -146,7 +145,6 @@ function syncPresentationMode() {
 }
 
 fileInput.addEventListener("change", handleFile);
-openDemo.addEventListener("click", () => loadMarkdown(demoMarkdown));
 document.addEventListener("keydown", handleKey);
 deckEl.addEventListener("click", toggleFullscreen);
 document.addEventListener("fullscreenchange", syncPresentationMode);
