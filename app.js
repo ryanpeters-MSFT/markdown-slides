@@ -1,7 +1,6 @@
 const fileInput = document.getElementById("file-input");
 const slideEl = document.getElementById("slide");
 const slideIndexEl = document.getElementById("slide-index");
-const slideTitleEl = document.getElementById("slide-title");
 const deckEl = document.querySelector(".deck");
 let dragDepth = 0;
 
@@ -75,9 +74,6 @@ function renderSlide(index) {
 
   activeIndex = safeIndex;
   slideIndexEl.textContent = `${safeIndex + 1} / ${total}`;
-
-  const headingMatch = raw.match(/^#\s+(.+)/m);
-  slideTitleEl.textContent = headingMatch ? headingMatch[1] : "";
 
   if (document.fullscreenElement === deckEl) {
     deckEl.scrollTop = 0;

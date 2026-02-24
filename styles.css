@@ -247,11 +247,6 @@ body.presenting .deck {
   z-index: 1;
 }
 
-#slide-title {
-  font-weight: 600;
-  color: var(--accent-strong);
-}
-
 .tips {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
