@@ -70,6 +70,15 @@ function renderSlide(index) {
 
   const headingMatch = raw.match(/^#\s+(.+)/m);
   slideTitleEl.textContent = headingMatch ? headingMatch[1] : "";
+
+  if (document.fullscreenElement === deckEl) {
+    deckEl.scrollTop = 0;
+  }
+}
+
+function isAtDeckBottom() {
+  const remaining = deckEl.scrollHeight - (deckEl.scrollTop + deckEl.clientHeight);
+  return remaining <= 2;
 }
 
 function loadMarkdown(markdown) {
@@ -122,10 +131,10 @@ function handleFile(event) {
 }
 
 function handleKey(event) {
-  if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+  if (event.key === "ArrowRight") {
     renderSlide(activeIndex + 1);
   }
-  if (event.key === "ArrowLeft" || event.key === "PageUp") {
+  if (event.key === "ArrowLeft") {
     renderSlide(activeIndex - 1);
   }
   if (event.key.toLowerCase() === "f") {
