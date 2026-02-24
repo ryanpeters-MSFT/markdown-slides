@@ -54,7 +54,14 @@ body {
 h1 {
   font-family: var(--display);
   font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.1;
   margin: 0 0 12px;
+}
+
+h2 {
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: var(--accent-strong);
 }
 
 .subhead {
@@ -137,7 +144,7 @@ h1 {
 }
 
 .deck:fullscreen h2 {
-  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.1rem, 3.7vw, 3.2rem);
 }
 
 .deck:fullscreen h3 {
