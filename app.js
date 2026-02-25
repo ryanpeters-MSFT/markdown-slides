@@ -1,4 +1,6 @@
 const fileInput = document.getElementById("file-input");
+const prevSlideButton = document.getElementById("prev-slide");
+const nextSlideButton = document.getElementById("next-slide");
 const slideEl = document.getElementById("slide");
 const slideIndexEl = document.getElementById("slide-index");
 const deckEl = document.querySelector(".deck");
@@ -194,6 +196,8 @@ function handleDrop(event) {
 }
 
 fileInput.addEventListener("change", handleFile);
+prevSlideButton.addEventListener("click", () => renderSlide(activeIndex - 1));
+nextSlideButton.addEventListener("click", () => renderSlide(activeIndex + 1));
 document.addEventListener("keydown", handleKey);
 deckEl.addEventListener("click", toggleFullscreen);
 document.addEventListener("fullscreenchange", syncPresentationMode);
