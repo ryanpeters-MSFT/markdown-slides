@@ -42,15 +42,6 @@ body {
   gap: 24px;
 }
 
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
-  margin: 0 0 12px;
-  color: var(--accent-strong);
-  font-weight: 600;
-}
-
 h1 {
   font-family: var(--display);
   font-size: clamp(2.4rem, 4vw, 3.4rem);
