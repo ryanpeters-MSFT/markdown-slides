@@ -223,12 +223,25 @@ body.presenting .deck {
 }
 
 .slide pre {
+  display: block;
+  max-width: 100%;
   background: #1c1c1c;
   color: #f5f2ea;
   padding: 16px;
   border-radius: 18px;
   overflow-x: auto;
+  overflow-y: hidden;
   font-family: var(--mono);
+}
+
+.slide pre code {
+  display: block;
+  white-space: pre;
+  min-width: max-content;
+}
+
+.deck:fullscreen .slide pre {
+  font-size: 1.3rem;
 }
 
 .slide code {
