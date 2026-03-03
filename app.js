@@ -42,6 +42,7 @@ Press \`F\` for fullscreen.
 
 let slides = [demoMarkdown];
 let activeIndex = 0;
+const highlightLanguages = new Set(["yaml", "bash", "powershell", "json"]);
 
 const renderer = new marked.Renderer();
 renderer.link = function ({ href, title, tokens }) {
@@ -63,6 +64,35 @@ function splitSlides(markdown) {
     .filter(Boolean);
 }
 
+function normalizeCodeLanguage(language) {
+  const normalized = String(language || "").toLowerCase();
+
+  if (normalized === "yml") return "yaml";
+  if (normalized === "sh" || normalized === "shell") return "bash";
+  if (normalized === "pwsh" || normalized === "ps" || normalized === "ps1") return "powershell";
+
+  return normalized;
+}
+
+function getCodeBlockLanguage(codeEl) {
+  const languageClass = Array.from(codeEl.classList).find((className) => className.startsWith("language-"));
+  if (!languageClass) return "";
+  return normalizeCodeLanguage(languageClass.replace("language-", ""));
+}
+
+function highlightSlideCodeBlocks() {
+  if (!window.hljs) return;
+
+  const codeBlocks = slideEl.querySelectorAll("pre code");
+  codeBlocks.forEach((codeEl) => {
+    const language = getCodeBlockLanguage(codeEl);
+    if (!highlightLanguages.has(language)) return;
+
+    codeEl.classList.add(`language-${language}`);
+    window.hljs.highlightElement(codeEl);
+  });
+}
+
 function renderSlide(index) {
   const total = slides.length;
   const safeIndex = ((index % total) + total) % total;
@@ -70,6 +100,7 @@ function renderSlide(index) {
   const html = marked.parse(raw);
 
   slideEl.innerHTML = html;
+  highlightSlideCodeBlocks();
   slideEl.classList.remove("reveal");
   void slideEl.offsetWidth;
   slideEl.classList.add("reveal");
