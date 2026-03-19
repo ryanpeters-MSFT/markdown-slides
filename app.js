@@ -37,7 +37,7 @@ console.log(deck);
 ---
 
 ## Thanks!
-Press \`F\` for fullscreen.
+Press \`F\` or \`F11\` for fullscreen.
 `;
 
 let slides = [demoMarkdown];
@@ -174,6 +174,10 @@ function handleKey(event) {
   if (event.key === "ArrowLeft") {
     renderSlide(activeIndex - 1);
   }
+  if (event.key === "F11") {
+    event.preventDefault();
+    toggleFullscreen();
+  }
   if (event.key.toLowerCase() === "f") {
     toggleFullscreen();
   }
@@ -230,7 +234,6 @@ fileInput.addEventListener("change", handleFile);
 prevSlideButton.addEventListener("click", () => renderSlide(activeIndex - 1));
 nextSlideButton.addEventListener("click", () => renderSlide(activeIndex + 1));
 document.addEventListener("keydown", handleKey);
-deckEl.addEventListener("click", toggleFullscreen);
 document.addEventListener("fullscreenchange", syncPresentationMode);
 deckEl.addEventListener("dragenter", handleDragEnter);
 deckEl.addEventListener("dragleave", handleDragLeave);

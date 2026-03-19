@@ -7,7 +7,7 @@ A simple static app that renders Markdown files as slide decks.
 1. Open index.html in a browser.
 2. Click "Choose Markdown file(s)" and select one or more .md files.
 3. Use Left/Right arrow keys to navigate slides.
-4. Press F or click the slide stage to toggle fullscreen.
+4. Press F or F11 to toggle fullscreen.
 5. In fullscreen, scroll vertically (mouse wheel/trackpad) for long slides.
 
 ## Slide format
