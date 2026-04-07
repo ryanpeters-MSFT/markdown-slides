@@ -42,7 +42,7 @@ Press \`F\` or \`F11\` for fullscreen.
 
 let slides = [demoMarkdown];
 let activeIndex = 0;
-const highlightLanguages = new Set(["yaml", "bash", "powershell", "json"]);
+const highlightLanguages = new Set(["yaml", "bash", "powershell", "json", "xml", "csharp"]);
 
 const renderer = new marked.Renderer();
 renderer.link = function ({ href, title, tokens }) {
@@ -70,6 +70,8 @@ function normalizeCodeLanguage(language) {
   if (normalized === "yml") return "yaml";
   if (normalized === "sh" || normalized === "shell") return "bash";
   if (normalized === "pwsh" || normalized === "ps" || normalized === "ps1") return "powershell";
+  if (normalized === "html") return "xml";
+  if (normalized === "cs" || normalized === "c#") return "csharp";
 
   return normalized;
 }
