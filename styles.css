@@ -223,6 +223,18 @@ body.presenting .deck {
   margin-top: 0;
 }
 
+.slide a {
+  color: #3a3a3a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.slide a:hover,
+.slide a:focus-visible {
+  color: var(--ink);
+  text-decoration: none;
+}
+
 .slide pre {
   display: block;
   width: 100%;
