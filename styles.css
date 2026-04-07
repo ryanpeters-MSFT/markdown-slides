@@ -213,6 +213,7 @@ body.presenting .deck {
   z-index: 1;
   font-size: 1.1rem;
   line-height: 1.6;
+  min-width: 0;
 }
 
 .slide h1,
@@ -224,6 +225,7 @@ body.presenting .deck {
 
 .slide pre {
   display: block;
+  width: 100%;
   max-width: 100%;
   background: #1c1c1c;
   color: #f5f2ea;
@@ -232,6 +234,8 @@ body.presenting .deck {
   overflow-x: auto;
   overflow-y: hidden;
   font-family: var(--mono);
+  font-size: 0.9rem;
+  min-width: 0;
 }
 
 .slide pre code {
