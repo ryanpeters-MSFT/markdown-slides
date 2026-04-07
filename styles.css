@@ -232,7 +232,7 @@ body.presenting .deck {
 .slide a:hover,
 .slide a:focus-visible {
   color: var(--ink);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .slide pre {
